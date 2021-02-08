@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Edit Client info</h1>
+
+<div class="client-form" [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput />
+    <ng-container *ngIf="form.get('name').invalid">
+      <mat-error>{{ form.get("name").getError("error") }}</mat-error>
+    </ng-container>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Services</mat-label>
+    <mat-select formControlName="services" multiple>
+      <mat-option [value]="service.id" *ngFor="let service of services">{{
+        service.name
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="save()">Save</button>
+  <button mat-button [mat-dialog-close]>Close</button>
+</div>

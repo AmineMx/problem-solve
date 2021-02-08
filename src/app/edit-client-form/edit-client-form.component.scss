@@ -1,0 +1,11 @@
+.client-form {
+  display: flex;
+  flex-direction: column;
+}
+
+:host {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
